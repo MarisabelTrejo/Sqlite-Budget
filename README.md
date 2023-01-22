@@ -3,8 +3,6 @@ SQLite is used as a temporary dataset to get processed with some data within an 
 
 If there is one thing that many of us strugle with, it is keeping track of our expenses. Often we think "where did all my money go?" If thats the case this would be something handy for you to use. 
 
-{Provide a link to your YouTube demonstration. It should be a 4-5 minute demo of the software running, a walkthrough of the code, and a view of how created the Relational Database.}
-
 [Software Demo Video](https://youtu.be/9aIZNXcttY4)
 
 # Relational Database
