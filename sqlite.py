@@ -10,18 +10,25 @@ cursor = connection.cursor()
 # Create table for purchase
 CREATE_PURCHASE_TABLE = "CREATE TABLE IF NOT EXISTS purchase (id INTEGER PRIMARY KEY, purchase_type CHAR, amount REAL, purchase_date CHAR );"
 
+# Insert purchase
 INSERT_PURCHASE = "INSERT INTO purchase (purchase_type, amount, purchase_date) VALUES(?, ?, ?);"
 
+# Get all purchases
 GET_ALL_PURCHASE = "SELECT * FROM purchase;"
 
+# Get a purchase by name
 GET_PURCHASE_BY_NAME = "SELECT * FROM purchase WHERE purchase_type = ?;"
 
+# Get a purchase by date
 GET_PURCHASE_DATE = "SELECT DATE(purchase_date), purchase_type, PRINTF('$%.2F', amount) FROM purchase WHERE purchase_date = ?;"
 
+# Update a purchase
 UPDATE_PURCHASE = "UPDATE purchase SET amount = ? WHERE id = ?;"
 
+#Delete a purchase
 DELETE_PURCHASE = "DELETE FROM purchase WHERE id = ?;"
 
+# Biggest and smallest purchase
 MAX_PURCHASE ="SELECT MAX(amount), purchase_type FROM purchase;"
 MIN_PURCHASE = "SELECT MIN(amount), purchase_type FROM purchase;"
 

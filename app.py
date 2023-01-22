@@ -39,9 +39,7 @@ def menu():
                 print(purchase)
             print("-----------------------------------------------------------")
             # Use Update to change the price of any item
-            
             check = input("Does amount look correct? Y/N: ")
-
             if check.upper() == "N":
                 id = input("What is the purchase id? ")
                 amount = float(input("What is the correct amount?: "))
@@ -50,55 +48,59 @@ def menu():
             else:
                 pass
 
-            
-            
-            
+        # Show all the purchases user has made
         elif user_input == "2":
             purchases = sqlite.get_all_purchase(connection)
-
             for purchase in purchases:
                 print(purchase)
 
+        # Look up purchase by name
         elif user_input == "3":
             name = input("What is the name of the purchase you are looking for? ")
             purchases = sqlite.get_purchase_by_name(connection, name)
-
             for purchase in purchases:
                 print(purchase)
 
+        # See a purchase by date
         elif user_input == "4":
             date = input("What date would you like to see purchases from? YYYY-MM-DD: ")
             purchases = sqlite.get_purchase_date(connection, date)
         
             for purchase in purchases:
                 print(purchase)
+
+        # Put in a deposit and date of deposit        
         elif user_input == '5':
             deposit = float(input("How much is deposited? $ "))
             deposit_date = input("What is date of deposit? YYYY-MM-DD: ")
             sqlite.add_deposit(connection, deposit, deposit_date)
-        
+
+        # See all of deposits
         elif user_input == "6":
             deposits = sqlite.get_all_deposits(connection)
             for deposit in deposits:
                 print(deposit)
-        
+
+        # Delete chosen purchases
         elif user_input == "7":
-            # List all the purchases
+            # List all the purchases again to see which needs to be deleted.
             purchases = sqlite.get_all_purchase(connection)
 
             for purchase in purchases:
                 print(purchase)
             print("------------------------------------------")
             
+            # Ask uer which one they want to delete by ID
             purchase_id = input("What is is the purchase id that you'd like to delete? ")
             sqlite.delete_purchase(connection, purchase_id)
-
+        # Check biggest expense
         elif user_input == "8":
             print("This was your biggest expense")
             max_purchase = sqlite.max_purchase(connection)
             for purchase in max_purchase:
                 print(purchase)
-
+                
+        # Check smallest expense
         elif user_input == "9":
             print("This was your smalles purchase")
             min_purchase = sqlite.min_purchase(connection)
